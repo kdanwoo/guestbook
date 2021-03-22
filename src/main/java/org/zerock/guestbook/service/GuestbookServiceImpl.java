@@ -15,7 +15,7 @@ import org.zerock.guestbook.repository.GuestbookRepository;
 
 import java.util.function.Function;
 
-@Service
+@Service //스프링에서 빈으로 처리된다.
 @Log4j2
 @RequiredArgsConstructor //의존성 자동 주입
 public class GuestbookServiceImpl implements GuestbookService {

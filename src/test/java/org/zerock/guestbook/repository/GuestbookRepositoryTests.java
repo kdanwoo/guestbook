@@ -52,16 +52,22 @@ public class GuestbookRepositoryTests {
     public void testQuery1(){
         Pageable pageable = PageRequest.of(0,10, Sort.by("gno").descending());
 
+       /** 1. 동적으로 처리하기 위해서 Q도메인 클래스를 이용하면 엔티티클래스를 선언된 필드 이용 가능하다. */
         QGuestbook qGuestbook = QGuestbook.guestbook;
 
         String keyword = "1";
 
+        /** 2.Boolean Builder는 where절에 들어가는 조건들을 넣어주는 컨테이너다. */
         BooleanBuilder builder = new BooleanBuilder();
 
+        /** 원하는 조건은 필드값과 결합한다.
+         * BooleanBuilder안에 들어가는 값은 Predicate 타입이어야 한다.*/
         BooleanExpression expression = qGuestbook.title.contains(keyword);
 
         builder.and(expression);
 
+        /** BooleanBuilder는 GuestbookRepository에 추가된 QuerydslPredicateExcutor
+         * 인터페이스의 findAll() 사용 가능하다 */
         Page<Guestbook> result = guestbookRepository.findAll(builder,pageable);
 
         result.stream().forEach(guestbook -> {
@@ -84,7 +90,7 @@ public class GuestbookRepositoryTests {
 
         BooleanExpression exContent = qGuestbook.content.contains(keyword);
 
-        BooleanExpression exAll = exTitle.or(exContent);
+        BooleanExpression exAll = exTitle.or(exContent); /** Boolean E*/
 
         builder.and(exAll);
 
