@@ -11,7 +11,7 @@ public interface GuestbookService {
 
     void modify(GuestbookDTO dto);
 
-    GuestbookDTO read(Long gno);
+    GuestbookDTO  read(Long gno);
 
     Long register(GuestbookDTO dto);
 
