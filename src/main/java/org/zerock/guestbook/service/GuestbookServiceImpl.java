@@ -64,6 +64,7 @@ public class GuestbookServiceImpl implements GuestbookService {
 
         repository.save(entity);
 
+
         return entity.getGno();
     }
 
@@ -78,4 +79,5 @@ public class GuestbookServiceImpl implements GuestbookService {
 
         return new PageResultDTO<>(result, fn);
     }
+
 }
