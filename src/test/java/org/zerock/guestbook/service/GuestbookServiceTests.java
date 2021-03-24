@@ -46,4 +46,21 @@ public class GuestbookServiceTests {
             System.out.println(integer);
         });
     }
+
+    @Test
+    public void testSearch(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .type("tc")
+                .keyword("한글")
+                .build();
+
+        PageResultDTO<GuestbookDTO, Guestbook>  resultDTO = service.getList(pageRequestDTO);
+
+        System.out.println("");
+
+    }
+
+
 }
