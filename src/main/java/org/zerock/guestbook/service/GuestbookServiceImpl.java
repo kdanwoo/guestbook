@@ -24,6 +24,26 @@ public class GuestbookServiceImpl implements GuestbookService {
     private final GuestbookRepository repository; //반드시 final로 선언?
 
     @Override
+    public void remove(Long gno) {
+        repository.deleteById(gno);
+    }
+
+    @Override
+    public void modify(GuestbookDTO dto) {
+        Optional<Guestbook> result = repository.findById(dto.getGno());
+
+        if(result.isPresent()){
+            Guestbook entity = result.get();
+
+            entity.changeTitie(dto.getTitle());
+            entity.changeContent(dto.getContent());
+
+            repository.save(entity);
+        }
+
+    }
+
+    @Override
     public GuestbookDTO read(Long gno) {
 
         Optional<Guestbook> result = repository.findById(gno);
