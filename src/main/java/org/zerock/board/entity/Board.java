@@ -1,19 +1,16 @@
-package org.zerock.guestbook.entity;
+package org.zerock.board.entity;
 
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(exclude = "writer")
 public class Board {
 
     @Id
@@ -24,5 +21,10 @@ public class Board {
 
     private String content;
 
-    //작성자는 처리하지 않음.
+    @ManyToOne
+    private Member writer;
+
+
+
+
 }

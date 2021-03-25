@@ -1,4 +1,4 @@
-package org.zerock.guestbook.entity;
+package org.zerock.board.entity;
 
 import lombok.*;
 
