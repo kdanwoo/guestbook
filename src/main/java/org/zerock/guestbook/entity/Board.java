@@ -1,4 +1,4 @@
-package org.zerock.board.entity;
+package org.zerock.guestbook.entity;
 
 
 import lombok.*;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = "writer")
-public class Board {
+public class Board extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
