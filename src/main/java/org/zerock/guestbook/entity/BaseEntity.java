@@ -11,7 +11,6 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @MappedSuperclass //해당 어노테이션이 적용된 클래스는 테이블로 생성되지 않음.
-
 @EntityListeners(value = {AuditingEntityListener.class})
 @Getter
 abstract class BaseEntity {
