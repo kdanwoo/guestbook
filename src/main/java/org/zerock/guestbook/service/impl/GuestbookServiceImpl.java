@@ -1,4 +1,4 @@
-package org.zerock.guestbook.service;
+package org.zerock.guestbook.service.impl;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -15,6 +15,7 @@ import org.zerock.guestbook.dto.PageResultDTO;
 import org.zerock.guestbook.entity.Guestbook;
 import org.zerock.guestbook.entity.QGuestbook;
 import org.zerock.guestbook.repository.GuestbookRepository;
+import org.zerock.guestbook.service.GuestbookService;
 
 import java.util.Optional;
 import java.util.function.Function;
